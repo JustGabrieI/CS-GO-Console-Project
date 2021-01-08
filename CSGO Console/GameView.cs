@@ -4,78 +4,62 @@ using System.Text;
 
 namespace CS_GO_Console
 {
-    class GameInterface
+    class GameView
     {
 
-        public static void GameInterfaceCommands(string cmd)
+        public static void GameViewCommands(string cmd)
         {
-            if (cmd == "cl_hud_playercount_pos 1")
+            if (cmd == "sv_showbullethits 0 ")
             {
-                Console.WriteLine("moves the list of players to the lower part of the screen. The value 0 returns the standard upper position.");
+                Console.WriteLine("turns off the animation of blood in the game.");
             }
-            else if (cmd == "cl_hud_playercount_showcount 1")
+            else if (cmd == "r_cleardecals")
             {
-                Console.WriteLine("turns pics of players into numbers of living characters. It is convenient when you aren’t interested in detailed information about opponents and teammates.");
+                Console.WriteLine("wipe out all the existing blood and bullet holes in the virtual world of CS:GO.");
             }
-            else if (cmd == "cl_showloadout 1")
+            else if (cmd == "cam_idealdist 150")
             {
-                Console.WriteLine("this command shows items from the inventory in the right lower corner.");
+                Console.WriteLine("the position of the camera. The value 0 is the a standard one. Change it to move the camera in a circle.");
             }
-            else if (cmd == "cl_radar_always_centered 1")
+            else if (cmd == "cam_idealyaw 0")
             {
-                Console.WriteLine("changes the radar mode, putting your character in its center.");
+                Console.WriteLine("wipe out all the existing blood and bullet holes in the virtual world of CS:GO.");
             }
-            else if (cmd == "cl_radar_rotate 1")
+            else if (cmd == "cam_command 1")
             {
-                Console.WriteLine("makes the radar rotate. This may help to navigate the CSGO map.");
+                Console.WriteLine("activates the third person perspective. The command.");
             }
-            else if (cmd == "cl_radar_square_with_scoreboard 1")
+            else if (cmd == "cam_command 2")
             {
-                Console.WriteLine("the radar becomes square, and the match score is shown there.");
+                Console.WriteLine(" returns the standard first person perspective.");
             }
-            else if (cmd == "hideradar")
+            else if (cmd == "cl_righthand 1")
             {
-                Console.WriteLine("removes the radar. The command drawradar returns it.");
+                Console.WriteLine("puts the weapon in the left hand. cl_righthand 0 – returns the right-hand view.");
             }
-            else if (cmd == "cl_radar_scale 0.3")
+            else if (cmd == "viewmodel_presetpos 2")
             {
-                Console.WriteLine("the scale of the radar.");
+                Console.WriteLine("this command changes the view of the weapon. It has different values: 2 for closed view, 3 for the classic view as in Counter-Strike 1.6, 1 for the default view.");
             }
-            else if (cmd == "cl_radar_icon_scale_min 0.7")
+            else if (cmd == "viewmodel_offset_x [value]")
             {
-                Console.WriteLine("the scale of the game characters on the radar.");
+                Console.WriteLine("by entering this command, players can adjust the position of the character’s hand. It determines the x-axis. Change the letter in this command to influence the y- or z-axis.The value can be from -2 to 2.5.");
             }
-            else if (cmd == "cl_hud_radar_scale 1.15")
+            else if (cmd == "viewmodel_fov [value]")
             {
-                Console.WriteLine("changes the size of the radar and the other interface elements.");
+                Console.WriteLine("makes the character hold the weapon closer or farther away. The value can be from -54 to 65).");
             }
-            else if (cmd == "hud_scaling [value]")
+            else if (cmd == "r_dynamic 0")
             {
-                Console.WriteLine("the scale of all the interface elements.");
+                Console.WriteLine("turns off the dynamic lighting.");
             }
-            else if (cmd == "hud_showtargetid 0")
+            else if (cmd == "r_drawtracers_firstperson 0")
             {
-                Console.WriteLine("hides names of players while hovering over their characters.");
+                Console.WriteLine(" you won’t see the light of fire from your weapon.);
             }
-            else if (cmd == "cl_hud_background_alpha [value]")
+            else if (cmd == "mat_savechanges")
             {
-                Console.WriteLine("the level of opacity for the interface elements. The value 0.1 is popular.");
-            }
-            else if (cmd == "cl_hud_background_alpha 1")
-            {
-                Console.WriteLine("he indicator of you having the bomb is displayed under the radar. It returns to the inventory with the value 0.");
-            }
-            else if (cmd == "cl_hud_color [value]")
-            {
-                Console.WriteLine("hanges the color of the interface elements. Try values from 0 to 10.");
-            }
-            else if (cmd == "cl_draw_only_deathnotices 1")
-            {
-                Console.WriteLine("only death notifications will appear in the game interface; all the other elements will be hidden.");
-            }
-            else if (cmd == "cl_drawhud 0")
-            {
-                Console.WriteLine("removes all the interface elements from the game screen.");
+                Console.WriteLine("use this command to save changes caused through the console for the next matches.");
             }
 
         }
