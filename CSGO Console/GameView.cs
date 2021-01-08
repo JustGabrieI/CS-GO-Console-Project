@@ -55,7 +55,7 @@ namespace CS_GO_Console
             }
             else if (cmd == "r_drawtracers_firstperson 0")
             {
-                Console.WriteLine(" you won’t see the light of fire from your weapon.");
+                Console.WriteLine("you won’t see the light of fire from your weapon.");
             }
             else if (cmd == "mat_savechanges")
             {
