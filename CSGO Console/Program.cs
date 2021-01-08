@@ -117,7 +117,7 @@ namespace CS_GO_Console
             {
                 Console.Write("-");
             }
-            Console.WriteLine();
+            Console.WriteLine("\nEnter command:");
         }
 
         static void Main(string[] args)
@@ -129,6 +129,7 @@ namespace CS_GO_Console
             GameInterface.GameInterfaceCommands(cmd);
             GameView.GameViewCommands(cmd);
             MouseSettings.MouseSettingsCommands(cmd);
+            Bot.BotCommands(cmd);
         }
     }
 }
