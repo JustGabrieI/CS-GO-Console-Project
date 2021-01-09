@@ -130,6 +130,9 @@ namespace CS_GO_Console
             GameView.GameViewCommands(cmd);
             MouseSettings.MouseSettingsCommands(cmd);
             Bot.BotCommands(cmd);
+            Cheat.CheatingCommands(cmd);
+            Launch.LaunchCommands(cmd);
+            Graphics.GraphicsCommands(cmd);
         }
     }
 }
