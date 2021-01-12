@@ -117,7 +117,7 @@ namespace CS_GO_Console
             {
                 Console.Write("-");
             }
-            Console.WriteLine("\nDo you want a list of the class commands? y/n");
+            Console.WriteLine("\nWant a list of the class commands? y/n");
 
             char list = Char.Parse(Console.ReadLine());
             if (list == 'y')
