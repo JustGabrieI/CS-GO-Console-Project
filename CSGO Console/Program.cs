@@ -132,7 +132,7 @@ namespace CS_GO_Console
                 {
                     Console.Write("-");
                 }
-                Console.WriteLine("\nWhich from the classes you need?");
+                Console.WriteLine("\nWhich class do you need?");
 
                 string list2 = Console.ReadLine();
                 if (list2 == "MouseSettings")
