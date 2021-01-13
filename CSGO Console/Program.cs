@@ -175,7 +175,7 @@ namespace CS_GO_Console
             }
             else if (list == 'n')
             {
-                Entercommand();
+                Console.WriteLine("Enter command:");
             }
             else
             {
