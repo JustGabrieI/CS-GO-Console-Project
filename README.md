@@ -1,2 +1,2 @@
-# CS-GO-Console-Project
+# CS GO Console commands guide
 School project
