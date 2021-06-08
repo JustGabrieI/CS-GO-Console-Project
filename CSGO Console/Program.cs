@@ -101,12 +101,8 @@ namespace CS_GO_Console
             );
         }
 
-
-        public static void EnterNickname()
+        public static void EnterNickname(string name)
         {
-            string name;
-            Console.WriteLine("Enter your steam name: ");
-            name = Console.ReadLine();
             for (int i = 0; i < 8 + name.Length; i++)
             {
                 Console.Write("-");
@@ -117,7 +113,8 @@ namespace CS_GO_Console
             {
                 Console.Write("-");
             }
-            Console.WriteLine("\nWant a list of the class commands? y/n");
+
+            Console.WriteLine("\nWant a list of the settings? y/n");
 
             char list = Char.Parse(Console.ReadLine());
             if (list == 'y')
@@ -127,12 +124,12 @@ namespace CS_GO_Console
                 {
                     Console.Write("-");
                 }
-                Console.WriteLine("\nMouseSettings" + "\nLaunch" + "\nGraphics" + "\nGameView" + "\nGameInterface" + "\nCheat" + "\nBot");                
+                Console.WriteLine("\nMouseSettings" + "\nLaunch" + "\nGraphics" + "\nGameView" + "\nGameInterface" + "\nCheat" + "\nBot");
                 for (int i = 0; i < 8 + name.Length; i++)
                 {
                     Console.Write("-");
                 }
-                Console.WriteLine("\nWhich class do you need?");
+                Console.WriteLine("\nWhich settings do you need?");
 
                 string list2 = Console.ReadLine();
                 if (list2 == "MouseSettings")
@@ -170,7 +167,6 @@ namespace CS_GO_Console
                     Console.Write("-");
                 }
 
-
                 Console.WriteLine("\nEnter your command:");
             }
             else if (list == 'n')
@@ -183,66 +179,59 @@ namespace CS_GO_Console
             }
         }
 
-        public static void Entercommand()
-        {   // hide this ^
-            Console.WriteLine("Enter which class of commands you want:");
+        public static void Entercommand(string cmd)
+        {   
+            Console.WriteLine("Enter which commands do you want:");
             string ec2 = Console.ReadLine();
             if (ec2 == "MouseSettings")
             {
                 Console.WriteLine("Enter a command:");
-                string cmd = Console.ReadLine();
                 MouseSettings.MouseSettingsCommands(cmd);
             }
             else if (ec2 == "MouseSettings")
             {
                 Console.WriteLine("Enter a command:");
-                string cmd = Console.ReadLine();
                 MouseSettings.MouseSettingsCommands(cmd);
             }
             else if (ec2 == "Launch")
             {
                 Console.WriteLine("Enter a command:");
-                string cmd = Console.ReadLine();
                 Launch.LaunchCommands(cmd);
             }
             else if (ec2 == "Graphics")
             {
                 Console.WriteLine("Enter a command:");
-                string cmd = Console.ReadLine();
                 Graphics.GraphicsCommands(cmd);
             }
             else if (ec2 == "GameView")
             {
                 Console.WriteLine("Enter a command:");
-                string cmd = Console.ReadLine();
                 GameView.GameViewCommands(cmd);
             }
             else if (ec2 == "GameInterface")
             {
                 Console.WriteLine("Enter a command:");
-                string cmd = Console.ReadLine();
                 GameInterface.GameInterfaceCommands(cmd);
             }
             else if (ec2 == "Cheat")
             {
                 Console.WriteLine("Enter a command:");
-                string cmd = Console.ReadLine();
                 Cheat.CheatCommands(cmd);
             }
             else if (ec2 == "Bot")
             {
                 Console.WriteLine("Enter a command:");
-                string cmd = Console.ReadLine();
+
                 Bot.BotCommands(cmd);
             }
-
         }
 
         static void Main(string[] args)
         {
             StartCommands();
-            EnterNickname();
-
+            Console.WriteLine("Enter your name: ");
+            string a = Console.ReadLine();           
+            EnterNickname(a);
             string cmd = Console.ReadLine();
             GameInterface.GameInterfaceCommands(cmd);
             GameView.GameViewCommands(cmd);
@@ -251,6 +240,25 @@ namespace CS_GO_Console
             Cheat.CheatCommands(cmd);
             Launch.LaunchCommands(cmd);
             Graphics.GraphicsCommands(cmd);
-        }
+            Console.WriteLine("Do you want to continue?");
+            string b = Console.ReadLine();
+
+            if (b == "n")
+            {
+                Console.WriteLine("Youre all set.");               
+            }
+            while (b == "y")
+            {   
+                EnterNickname(a);
+                string cmd2 = Console.ReadLine();                
+                GameInterface.GameInterfaceCommands(cmd2);
+                GameView.GameViewCommands(cmd2);
+                MouseSettings.MouseSettingsCommands(cmd2);
+                Bot.BotCommands(cmd2);
+                Cheat.CheatCommands(cmd2);
+                Launch.LaunchCommands(cmd2);
+                Graphics.GraphicsCommands(cmd2);
+            }
+        } 
     }
 }
