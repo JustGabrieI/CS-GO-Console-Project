@@ -141,14 +141,41 @@ namespace CS_GO_Console
                 {
                     Console.WriteLine("-console" + "\n-novid" + "\n-high" + "\n-threads [value]" + "\n-tickrate [value]" + "\n-language English" + "\n-fullscreen" + "\n-windowed" + "\n-noborder");
                 }
-                else if (list2 == "Graphics")
-                {
-                    Console.WriteLine("mat_monitorgamma [value]" + "\nmat_queue_mode -1" + "\nvolume [value]" + "\nsnd_musicvolume [value]" + "\nsnd_headphone_pan_exponent [value]" + "\nvoice_scale [value]" + "\nvoice_enable 0" + "\nwindows_speaker_config [value]" + "\nsnd_mixahead [value]" + "\ndeveloper 1" + "\ncl_autohelp 0" + "\ncl_disablehtmlmotd 1" + "\ncl_autowepswitch 0" + "\ncloseonbuy 1" + "\nhud_takesshots 1" + "\ncl_forcepreload 1" + "\ncl_disablefreezecam 1" + "\necho [text]");
-                }
+
                 else if (list2 == "GameView")
                 {
                     Console.WriteLine("\nsv_showbullethits 0" + "\nr_cleardecals" + "\ncam_idealdist 150" + "\ncam_idealyaw 0" + "\ncam_command 1" + "\ncam_command 2" + "\ncl_righthand 1" + "\nviewmodel_presetpos 2" + "\nviewmodel_offset_x [value]" + "\nviewmodel_fov [value]" + "\nr_dynamic 0" + "\nr_drawtracers_firstperson 0" + "\nmat_savechanges");
                 }
+
+                else if (list2 == "Graphics")
+                {
+                    Graphics Graphics = new Graphics();
+                    Console.WriteLine("Do you want to change your brightness?");
+                    string y = Console.ReadLine();
+                    if (y == "y")
+                    {
+                        Console.WriteLine("Your current brightness is: " + Graphics.brightness);                       
+                        Console.WriteLine("Do you want to add/remove?");
+                        string f = Console.ReadLine();
+                        if (f == "add")
+                        {
+                          Console.WriteLine("How much do you want to add?");
+                          int w = Int32.Parse(Console.ReadLine());
+                        Graphics.BrightnessChange(w);
+                        Console.WriteLine("Now your brightness is set to: " + Graphics.brightness); 
+                        }
+                        
+                        else if (f == "remove")
+                        {
+                          Console.WriteLine("How much do you want to remove?");
+                          int z = Int32.Parse(Console.ReadLine());
+                        Graphics.BrightnessRemove(z);
+                        Console.WriteLine("Now your brightness is set to: " + Graphics.brightness); 
+                        }
+
+                    }
+                }
+
                 else if (list2 == "GameInterface")
                 {
                     Console.WriteLine("\ncl_hud_playercount_pos 1" + "\ncl_hud_playercount_showcount 1" + "\ncl_showloadout 1" + "\ncl_radar_always_centered 1" + "\ncl_radar_rotate 1" + "\ncl_radar_square_with_scoreboard 1" + "\nhideradar" + "\ncl_radar_scale 0.3" + "\ncl_radar_icon_scale_min 0.7" + "\ncl_hud_radar_scale 1.15" + "\nhud_scaling [value]" + "\nhud_showtargetid 0" + "\ncl_hud_background_alpha [value]" + "\ncl_hud_background_alpha 1" + "\ncl_hud_color [value]" + "\ncl_draw_only_deathnotices 1" + "\ncl_drawhud 0");
@@ -167,7 +194,7 @@ namespace CS_GO_Console
                     Console.Write("-");
                 }
 
-                Console.WriteLine("\nEnter your command:");
+                
             }
             else if (list == 'n')
             {
@@ -198,11 +225,8 @@ namespace CS_GO_Console
                 Console.WriteLine("Enter a command:");
                 Launch.LaunchCommands(cmd);
             }
-            else if (ec2 == "Graphics")
-            {
-                Console.WriteLine("Enter a command:");
-                Graphics.GraphicsCommands(cmd);
-            }
+
+            
             else if (ec2 == "GameView")
             {
                 Console.WriteLine("Enter a command:");
@@ -221,7 +245,6 @@ namespace CS_GO_Console
             else if (ec2 == "Bot")
             {
                 Console.WriteLine("Enter a command:");
-
                 Bot.BotCommands(cmd);
             }
         }
@@ -239,7 +262,6 @@ namespace CS_GO_Console
             Bot.BotCommands(cmd);
             Cheat.CheatCommands(cmd);
             Launch.LaunchCommands(cmd);
-            Graphics.GraphicsCommands(cmd);
             Console.WriteLine("Do you want to continue?");
             string b = Console.ReadLine();
 
@@ -257,7 +279,6 @@ namespace CS_GO_Console
                 Bot.BotCommands(cmd2);
                 Cheat.CheatCommands(cmd2);
                 Launch.LaunchCommands(cmd2);
-                Graphics.GraphicsCommands(cmd2);
             }
         } 
     }
